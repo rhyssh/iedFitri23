@@ -58,6 +58,14 @@ let i;
 let ucapanSurat;
 let speed = 100;
 
+const kirimpesan = document.getElementById("wa");
+var message = "berapa nomor rekening nya, sini aku isiin..";
+const whatsappLink = `https://wa.me/?text=${encodeURIComponent(message)}`;
+
+kirimpesan.addEventListener("click", function () {
+  window.open(whatsappLink);
+});
+
 function resetTypewriter() {
   audio.pause();
   audio.currentTime = 0;
@@ -103,14 +111,9 @@ tombol.addEventListener("click", function () {
 });
 
 const backButton = document.getElementById("backButton");
-var pesanWhatsapp = "berapa nomor rekening nya, sini aku isiin..";
+
 backButton.addEventListener("click", function () {
   pagesec.classList.add("hide");
   pagefirst.classList.remove("hide");
   resetTypewriter();
-
-  const kirimpesan = document.getElementById("wa");
-  kirimpesan.addEventListener("click", function () {
-    window.open("https://wa.me/?text=" + pesanWhatsapp, "_blank");
-  });
 });
